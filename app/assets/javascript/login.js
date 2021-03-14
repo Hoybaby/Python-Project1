@@ -11,8 +11,20 @@ async function loginFormHandler(event) {
                 email,
                 password
             }),
-            header
-        }) 
+            headers: { 'Content-Type' : 'application/json'}
+        })
+        
+        if (response.ok) {
+            document.location.replace('/dashboard/');
+        } else {
+            alert(response.statusText);
+        }
     }
+}
+
+async function signupFormHandler(event) {
+    event.preventDefault();
+
+    const username = document.querySelector('#username-signup').value.trim();
 
 }
