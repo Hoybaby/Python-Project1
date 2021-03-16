@@ -1,4 +1,5 @@
 from flask import Flask
+from app.route import home
 
 def create_app(test_config=None):
     # set up app config
