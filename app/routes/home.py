@@ -15,3 +15,5 @@ def login():
 @bp.route('/post/<id>')
 def single(id):
     return render_template('single-post.html')
+
+    
