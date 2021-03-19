@@ -1,10 +1,11 @@
 from app.db import Base
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import validates
-
+import bcrypt
 # created a User class that inherits from the Base Class
 # the Base class variables helps us map the models to real MySQL tables which is key
 
+salt = bcrypt.gensalt()
 
 class User(Base):
     __tablename__ = 'users'
@@ -26,4 +27,4 @@ def validate_email(self, key, email):
 def validate_password(self, key, password):
     assert len(password > 4)
 
-    return password
+    return bcrypt.haspw(password.encode('utf-8'), salt)
