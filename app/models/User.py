@@ -16,15 +16,15 @@ class User(Base):
 
 # the @validates('') targets the value of the column i am targeting
 # the assert is basically the required in the html part where it needs it to function the return
-@validates('email')
-def validate_email(self, key, email):
-    # make sure email address contains a @ character
-    assert '@' in email
+    @validates('email')
+    def validate_email(self, key, email):
+        # make sure email address contains a @ character
+        assert '@' in email
 
-    return email
+        return email
 
-@validates('password')
-def validate_password(self, key, password):
-    assert len(password > 4)
+    @validates('password')
+    def validate_password(self, key, password):
+        assert len(password) > 4
 
-    return bcrypt.haspw(password.encode('utf-8'), salt)
+        return bcrypt.hashpw(password.encode('utf-8'), salt)
