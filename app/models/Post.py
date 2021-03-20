@@ -13,6 +13,10 @@ class Post(Base):
     user_id = Column(Integer, ForeignKey('users.id'))
     created_at = Column(DateTime, default = datetime.now)
     updated_at = Column(DateTime, default = datetime.now, onupdate=datetime.now)
-    
+
     user = relationship('User')
+    
     # In the SQLAlchemy model, we can define dynamic properties that won't become part of the MySQL table but that the query will return.
+
+    comments = relationship('Comment', cascade='all,delete')
+    # line 21 is so that if a post gets deleted, all the comments get deleted too

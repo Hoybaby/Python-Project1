@@ -18,7 +18,8 @@ db.add_all([
     User(username='test123', email='gmidgley4@weather.com', password='password123')
 ])
 
-    # insert posts
+db.commit()
+
 # insert posts
 db.add_all([
     Post(title='Donec posuere metus vitae ipsum', post_url='https://buzzfeed.com/in/imperdiet/et/commodo/vulputate.png', user_id=1),
@@ -28,6 +29,7 @@ db.add_all([
     Post(title='Pellentesque eget nunc', post_url='http://google.ca/nam/nulla/integer.aspx', user_id=4)
 ])
 
+db.commit()
 # insert comments
 db.add_all([
     Comment(comment_text='Nunc rhoncus dui vel sem.', user_id=1, post_id=2),
