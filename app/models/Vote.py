@@ -6,3 +6,7 @@ class Vote(Base):
     id = Column(Integer, primary_key=True)
     user_id = Column(Integer, ForeignKey('user.id'))
     post_id = Column(Integer, ForeignKey('post.is'))
+
+# establish table refernce  
+
+# user = relationship('User')
