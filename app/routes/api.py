@@ -42,3 +42,9 @@ def signup():
     session['loggedIn'] = True
     # This clears any existing session data and creates two new session properties: a user_id to aid future database queries and a Boolean property that the templates will use to conditionally render elements.
     return jsonify(id = newUser.id)
+
+@bp.route('/users/logout/', methods=['POST'])
+def logout():
+    # remove session variables so user can logout
+    session.clear()
+    return '', 204
