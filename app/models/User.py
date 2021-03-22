@@ -28,3 +28,11 @@ class User(Base):
         assert len(password) > 4
 
         return bcrypt.hashpw(password.encode('utf-8'), salt)
+
+    def verify_password(self, password):
+        return bcrypt.checkpw(
+            password.encode('utf-8'),
+            self.password.encode('utf-8')
+        )
+
+        # the .checkpw() method is to compare the incoming password, the password paramter to the one saved to the user ojbect
