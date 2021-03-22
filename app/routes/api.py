@@ -1,4 +1,4 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, jsonify
 from app.models import User
 from app.db import get_db
 
@@ -26,4 +26,4 @@ def signup():
 
     # print(data)
 
-    return ''
+    return jsonify(id = newUser.id)
