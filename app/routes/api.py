@@ -1,6 +1,7 @@
 from flask import Blueprint, request, jsonify
 from app.models import User
 from app.db import get_db
+import sys
 
 bp = Blueprint('api', __name__, url_prefix='/api')
 
@@ -14,15 +15,25 @@ def signup():
     # this data that we are getting is returning an object which we will pass into a new User model.
 
     # create a new user
-    newUser = User(
-        username = data['username'],
-        email = data['email'],
-        password = data['password']
-    )
 
-    # saving into the database
-    db.add(newUser)
-    db.commit()
+    try:
+        newUser = User(
+            username = data['username'],
+            email = data['email'],
+            password = data['password']
+        )
+
+        # saving into the database
+        db.add(newUser)
+        db.commit()
+    except:
+
+        print(sys.exc_info()[0])
+
+        # the db.rollback() is for if the db.comit fails, the connection will stay in a pending state which will break us in production with this.
+        db.rollback()
+        
+        return jsonify(message = 'Sign up failed'), 500
 
     # print(data)
 
