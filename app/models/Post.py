@@ -15,9 +15,7 @@ class Post(Base):
     user_id = Column(Integer, ForeignKey('users.id'))
     created_at = Column(DateTime, default = datetime.now)
     updated_at = Column(DateTime, default = datetime.now, onupdate=datetime.now)
-    vote_count = column_property(
-     select([func.count(Vote.id)]).where(Vote.post_id == id)
-    )
+    
 
     user = relationship('User')
     
@@ -26,4 +24,7 @@ class Post(Base):
     comments = relationship('Comment', cascade='all,delete')
     # line 21 is so that if a post gets deleted, all the comments get deleted too
 
+    vote_count = column_property(
+        select([func.count(Vote.id)]).where(Vote.post_id == id)
+    )
     # When we query the model, this dynamic property(column_property) will perform a SELECT, together with the SQLAlchemy func.count() method, to add up the votes.

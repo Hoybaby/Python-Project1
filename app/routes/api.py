@@ -103,10 +103,10 @@ def upvote():
     db = get_db()
 
     try:
-        # create a new vote with incoming id and session id
+    # create a new vote with incoming id and session id
         newVote = Vote(
-        post_id = data['post_id'],
-        user_id = session.get('user_id')
+            post_id = data['post_id'],
+            user_id = session.get('user_id')
         )
 
         db.add(newVote)
