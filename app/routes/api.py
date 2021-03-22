@@ -9,14 +9,20 @@ bp = Blueprint('api', __name__, url_prefix='/api')
 @bp.route('/users', methods=['POST'])
 def signup():
     data = request.get_json()
+    db = get_db()
 
     # this data that we are getting is returning an object which we will pass into a new User model.
 
+    # create a new user
     newUser = User(
-        username = data.username,
-        email = data.email,
-        password = data.password
+        username = data['username'],
+        email = data['email'],
+        password = data['password']
     )
+
+    # saving into the database
+    db.add(newUser)
+    db.commit()
 
     # print(data)
 
