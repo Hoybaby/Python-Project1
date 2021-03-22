@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, session
 from app.models import User
 from app.db import get_db
 import sys
@@ -37,4 +37,8 @@ def signup():
 
     # print(data)
 
+    session.clear()
+    session['user_id'] = newUser.id
+    session['loggedIn'] = True
+    # This clears any existing session data and creates two new session properties: a user_id to aid future database queries and a Boolean property that the templates will use to conditionally render elements.
     return jsonify(id = newUser.id)
