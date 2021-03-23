@@ -121,7 +121,7 @@ def upvote():
 
 # route for creating posts
 
-@bp.route('./posts', methods=['POST'])
+@bp.route('/posts', methods=['POST'])
 def create():
     data = request.get_json()
 
@@ -148,7 +148,7 @@ def create():
 
 # route for updating post
 
-@bp.route('/posts/<id>', methods=['PUT'])\
+@bp.route('/posts/<id>', methods=['PUT'])
 def update(id):
     data = request.get_json()
     db = get_db()

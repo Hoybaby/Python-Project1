@@ -15,9 +15,12 @@ def dash():
         .order_by(Post.created_at.desc())
         .all()
     )
+    return render_template(
+        'dashboard.html',
+        posts=posts,
+        loggedIn=session.get('loggedIn')
+    )
 
-
-    return render_template('dashboard.html')
 
 @bp.route('./edit/<id>')
 def edit(id):
