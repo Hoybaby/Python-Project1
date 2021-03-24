@@ -9,5 +9,5 @@ def login_required(func):
             return func(*args, **kwargs)
 
         return redirect('/login')
-  
+
     return wrapped_function
