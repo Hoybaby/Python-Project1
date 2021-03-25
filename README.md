@@ -67,6 +67,9 @@ To test, run the following command: To run the program, make sure you are in the
 <p>
 When the database is all done, the next big piece of work is to finialize the homepage and populate it with sample information. In the previous sectio, we need more setup to prepare it for Flask. In order to do so, we had to add a litle more code in the 'app/db/__init__.py' which will be 'Base.metadata.create_all() method'. We have the then import this function into the 'app/__init__.py and place this function inside the 'create_app()' function. To finish prepping the db package we need to define another function that returns a session. Whenever this function is called, it returns a new session-connection object. Other modules in the app can import Session directly from the db package, but using a function means that we can perform additional logic before creating the database connection. Once the connection is done and models are define, we implement them in the routes. It is IMPORTANT to close the connecto to database when we are done because it can cause the app to crash in production.  To do this, we create a close_db() function to handle it when we are done.</p>
 
+![Homepage Preview](https://user-images.githubusercontent.com/70716786/112416192-933f2100-8cfb-11eb-802e-877b2f23aabe.PNG)
+
+
 
 
 <h3>Login Session:</h3>
