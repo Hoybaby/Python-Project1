@@ -78,6 +78,10 @@ When the database is all done, the next big piece of work is to finialize the ho
 
 <p>When we are trying to add more routes, they will be going into the 'routes/api' file and this will allow yours posts be shown on the dashboard segment. In any new route, must establish the connection to get and send the data which can be done with a 'data = request.get_json()' then followed by 'db = get_db()'. Also very important to make sure that you state what you want to do with this information such as: 'POST, PUT, DELETE'. When trying to POST information, there is a chance to fail so I made sure to incorporate 'try' and 'except'</p>
 
+![Building route for api](https://user-images.githubusercontent.com/70716786/112415928-1dd35080-8cfb-11eb-80d6-89763c41faff.PNG)
+
+
+
 
 
 
