@@ -59,6 +59,8 @@ To test, run the following command: To run the program, make sure you are in the
 
 <p>The next step is create models for our database so when a user posts information or login, that data is collected and stored. The first thing that is needed is to create some models. It is best to open a new git branch and have that branch only deal with the models so everything is isolated. It also prevents any mistakes being done on the main branch. In our terminal, run 'mysql -u root -p' to run mysql and create the database name you want for this project which I did called python_news_db; This will hold the other tables which will contain the information. After creating the table, make sure the virtual enviroment takes place and make sure that sqlalchemy, pymsqsl and python-dotenv is installed.It is very important that in the .env you to reference the database in this way :'DB_URL=mysql+pymysql://root:<password>@localhost/python_news_db' connection. It be best to make a db directory and place a schema.sql to drop and create the database. In the 'db/__init__.py', it is a must to create three variable to connect to the database using env variable.</p>
 
+![db connection](https://user-images.githubusercontent.com/70716786/112416334-dc8f7080-8cfb-11eb-9ac3-c0cf6c54cd8f.PNG)
+
 
 
 
